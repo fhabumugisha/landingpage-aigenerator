@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>3.2.3</version>
+		<version>3.3.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.buseni</groupId>
@@ -29,9 +29,21 @@
 	<properties>
 		<java.version>17</java.version>
 		<jib.version>0.4.0</jib.version>
-		<spring.ai.version>0.8.1</spring.ai.version>
+		<spring.ai.version>1.0.0-SNAPSHOT</spring.ai.version>
 		<lombok.version>1.18.30</lombok.version>
 	</properties>
+	<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.ai</groupId>
+            <artifactId>spring-ai-bom</artifactId>
+            <version>${spring.ai.version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -69,17 +81,12 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 		
-		<!-- Spring AI Dependencies -->
+		<!-- Spring AI  starter Dependencies -->
 		<dependency>
 			<groupId>org.springframework.ai</groupId>
-			<artifactId>spring-ai-openai</artifactId>
-			<version>${spring.ai.version}</version>
+			<artifactId>spring-ai-openai-spring-boot-starter</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.ai</groupId>
-			<artifactId>spring-ai-core</artifactId>
-			<version>${spring.ai.version}</version>
-		</dependency>
+
 	</dependencies>
 
 	<build>
