@@ -1,5 +1,5 @@
 ---
-description: Thymeleaf + tailwind + Alpine
+description: Thymeleaf + tailwind + Alpine + HTMX
 globs: **/*.html, **/*.ts, **/*.css, **/*.js
 ---
 # Cursor AI Rules for HTML, CSS, JAVASCRIPT, Thymeleaf, Tailwind 4, and Alpine.js Frontend
@@ -33,36 +33,27 @@ globs: **/*.html, **/*.ts, **/*.css, **/*.js
 - Keep logic inside `@click` or `x-init`, avoiding inline JavaScript.
 - Use `x-transition` for smooth animations.
 
-## Example Code Snippets
-### Base Layout (`base.html`)
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title th:text="${title}">App</title>
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@4.x/dist/tailwind.min.css" rel="stylesheet">
-</head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-white">
-    <header th:replace="fragments/header :: header"></header>
-    
-    <main class="container mx-auto p-4">
-        <section th:replace="${content}"></section>
-    </main>
+## You are an expert in HTMX, Thymeleaf, Java, and Spring Boot.
 
-    <footer th:replace="fragments/footer :: footer"></footer>
-</body>
-</html>
-```
-### Button Component
+Code Style and Structure:
+- Write concise, clear, and maintainable code.
+- Utilize Thymeleaf's templating capabilities effectively.
+- Employ HTMX attributes (e.g., `hx-get`, `hx-post`) to enhance interactivity without relying heavily on JavaScript.
+- Ensure a clear separation of concerns between the frontend (Thymeleaf templates) and backend (Spring Boot controllers).
 
-```html
-<button class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-        x-data="{ clicked: false }"
-        @click="clicked = !clicked"
-        :class="clicked ? 'bg-green-600' : 'bg-blue-600'">
-    Click Me
-</button>
-```
+Naming Conventions:
+- Use camelCase for variable and function names.
+- Use PascalCase for class and component names.
+- Prefix HTMX attributes with `hx-` as per HTMX standards.
+
+Best Practices:
+- Leverage HTMX to handle AJAX requests declaratively within HTML using attributes like `hx-get` and `hx-post`.
+- Return only the necessary HTML snippets from the server to update parts of the page, optimizing performance.
+- Utilize Thymeleaf's templating features to create reusable and modular components.
+- Ensure server responses are structured to work seamlessly with HTMX for dynamic content updates.
+
+Error Handling and Validation:
+- Implement server-side validation to ensure data integrity before processing HTMX requests.
+- Return appropriate HTTP status codes (e.g., 4xx for client errors) and display user-friendly error messages using HTMX.
+- Use the `hx-swap` attribute to define how responses are inserted into the DOM for error messages or validation feedback.
+
