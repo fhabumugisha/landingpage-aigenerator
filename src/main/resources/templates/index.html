@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{base}" lang="en">
+<head>
+    <title th:text="#{page.title.welcome}">Welcome - Landing Page AI Generator</title>
+</head>
+<body>
+    <div layout:fragment="content">
+        <div class="max-w-4xl mx-auto text-center">
+            <h1 class="text-4xl font-bold tracking-tight text-gray-900 dark:text-white sm:text-6xl">
+                <span th:text="#{hero.title}">Generate Beautiful Landing Pages with AI</span>
+            </h1>
+            <p class="mt-6 text-lg leading-8 text-gray-600 dark:text-gray-300">
+                <span th:text="#{hero.description}">Create stunning, responsive landing pages in minutes using the power of artificial intelligence. No coding required.</span>
+            </p>
+            <div class="mt-10 flex items-center justify-center gap-x-6">
+                <a href="#" class="btn btn-primary">
+                    <span th:text="#{button.get.started}">Get Started</span>
+                </a>
+                <a href="#" class="btn btn-secondary">
+                    <span th:text="#{button.learn.more}">Learn More</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Fixed bottom textarea and button -->
+        <div class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-t border-gray-200 dark:border-gray-700 p-4 sm:p-6 shadow-lg transition-all duration-300">
+            <div class="container mx-auto max-w-4xl">
+                <div class="flex flex-col sm:flex-row gap-4 items-end">
+                    <div class="flex-1 relative w-full">
+                        <textarea 
+                            class="input w-full min-h-[100px] sm:min-h-[120px] resize-none pr-12 text-sm sm:text-base leading-relaxed transition-all duration-200 focus:ring-primary-500 focus:border-primary-500" 
+                            th:placeholder="#{input.placeholder}"
+                            rows="3"
+                        ></textarea>
+                        <div class="absolute bottom-3 right-3 text-xs sm:text-sm text-gray-400 dark:text-gray-500">
+                            <span class="font-medium" th:text="#{input.shortcut.ctrl}">Ctrl</span>
+                            <span th:text="#{input.shortcut.separator}">+</span>
+                            <span class="font-medium" th:text="#{input.shortcut.enter}">Enter</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary w-full sm:w-auto whitespace-nowrap px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base font-medium shadow-sm hover:shadow-md transition-all duration-200 flex items-center justify-center gap-2">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 sm:h-5 sm:w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd" />
+                        </svg>
+                        <span th:text="#{button.generate}">Generate</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

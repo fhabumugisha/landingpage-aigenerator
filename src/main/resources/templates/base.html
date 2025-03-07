@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:replace="${title} ?: _">Landing Page AI Generator</title>
+    <link rel="stylesheet" th:href="@{/css/output.css}">
+    <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
+    <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+    <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+</head>
+<body class="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <header class="bg-white dark:bg-gray-800 shadow-sm">
+        <div class="container mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div class="flex h-16 justify-between items-center">
+                <div class="flex-shrink-0">
+                    <a href="/" class="text-xl font-bold text-gray-900 dark:text-white">
+                        Landing Page AI
+                    </a>
+                </div>
+                <div class="flex items-center">
+                    <div th:replace="~{fragments/language-switcher :: language-switcher}"></div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container mx-auto px-4 py-8">
+        <div layout:fragment="content">
+            <!-- Main content -->
+        </div>
+    </main>
+
+    <footer th:replace="${footer} ?: _">
+        <!-- Footer content -->
+    </footer>
+</body>
+</html> 
