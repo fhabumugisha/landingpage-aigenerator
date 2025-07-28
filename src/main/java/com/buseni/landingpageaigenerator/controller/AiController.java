@@ -74,5 +74,25 @@ public class AiController {
             );
     }
 
+    @PostMapping(value = "/preview", produces = MediaType.TEXT_HTML_VALUE)
+    public ResponseEntity<String> previewLandingPage(@RequestParam String htmlContent) {
+        try {
+            if (htmlContent == null || htmlContent.trim().isEmpty()) {
+                return ResponseEntity.badRequest()
+                    .body("<div class='text-red-500'>Please provide valid HTML content</div>");
+            }
+            
+            // Ajouter les en-têtes de sécurité
+            return ResponseEntity.ok()
+                .header("Content-Security-Policy", "default-src 'self' 'unsafe-inline' 'unsafe-eval' https: http:; img-src 'self' data: https: http:; style-src 'self' 'unsafe-inline' https: http:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https: http:;")
+                .header("X-Content-Type-Options", "nosniff")
+                .body(htmlContent);
+                
+        } catch (Exception e) {
+            return ResponseEntity.internalServerError()
+                .body("<div class='text-red-500'>Error displaying landing page: " + e.getMessage() + "</div>");
+        }
+    }
+
     public record GenerateRequest(String prompt) {}
 } 
